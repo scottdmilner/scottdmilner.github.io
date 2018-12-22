@@ -1,3 +1,3 @@
 # scottdmilner.github.io
 
-[Go to blendgur](https://scottdmilner.github.io/blendgur)
+This is old. New repo is [here](https://github.com/blendgur/blendgur.github.io)
