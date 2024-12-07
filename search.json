@@ -1,5 +1,12 @@
 [
   {
+    "objectID": "posts/pipebot/index.html",
+    "href": "posts/pipebot/index.html",
+    "title": "PipeBot",
+    "section": "",
+    "text": "Figure 1: PipeBot’s Discord profile\n\n\n\nPipeBot is a Discord bot I created to help manage the pipeline for my senior thesis film.\n\nSource Code: scottdmilner/pipebot\nTechnologies: Python (aiohttp, disnake, PyGithub), Docker Compose\n\nPipeBot is deployed in a container with Docker Compose, using NGINX and Let’s Encrypt for SSL security.\n\nMost importantly, PipeBot provides a simple way for artists on the team to log bug reports and feature requests on GitHub without needing to make a GitHub account or navigate Github.\n\n\n\n\n\n\n\n\n1. Discord slash command\n\n\n\n\n\n\n\n2. Discord pop-up modal\n\n\n\n\n\n\n\n3. Properly tagged GitHub issue\n\n\n\n\n\n\nFigure 2: The artist’s bug reporting experience\n\n\n\nPipeBot also processes webhooks from ShotGrid and from pipeline tools running inside DCCs and broadcasts those messages to the team.\n\n\n\n\n\n\nFigure 3: Example of a report Discord message coming from a webhook sent to PipeBot"
+  },
+  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
@@ -12,13 +19,6 @@
     "title": "About",
     "section": "",
     "text": "I’m a Computer Science student studying CG/Animation/VFX pipelines at Brigham Young University 🛠⚙️.\nI’m currently deep in my senior capstone—an animated short about a meet-cute in a crypt. I’ve architected our pipeline from scratch, feel free to check out all my work at dungeon-pipeline!\nBig into: USD, Houdini, board games, and 400 year-old music"
-  },
-  {
-    "objectID": "posts/pipebot/index.html",
-    "href": "posts/pipebot/index.html",
-    "title": "PipeBot",
-    "section": "",
-    "text": "Figure 1: PipeBot’s Discord profile\n\n\n\nPipeBot is a Discord bot I created to help manage the pipeline for my senior thesis film.\n\nSource Code: scottdmilner/pipebot\nTechnologies: Python (aiohttp, disnake, PyGithub), Docker Compose\n\nPipeBot is deployed in a container with Docker Compose, using NGINX and Let’s Encrypt for SSL security.\n\nMost importantly, PipeBot provides a simple way for artists on the team to log bug reports and feature requests on GitHub without needing to make a GitHub account or navigate Github.\n\n\n\n\n\n\n\n\n1. Discord slash command\n\n\n\n\n\n\n\n2. Discord pop-up modal\n\n\n\n\n\n\n\n3. Properly tagged GitHub issue\n\n\n\n\n\n\nFigure 2: The artist’s bug reporting experience\n\n\n\nPipeBot also processes webhooks from ShotGrid and from pipeline tools running inside DCCs and broadcasts those messages to the team.\n\n\n\n\n\n\nFigure 3: Example of a report Discord message coming from a webhook sent to PipeBot"
   },
   {
     "objectID": "index.html",
