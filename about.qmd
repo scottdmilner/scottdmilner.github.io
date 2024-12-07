@@ -1,0 +1,22 @@
+---
+title: "About"
+image: profile.jpg
+about:
+  template: jolla
+  links:
+    - icon: linkedin
+      text: LinkedIn
+      href: https://linkedin.com/in/sdmilner
+    - icon: github
+      text: Github
+      href: https://github.com/scottdmilner
+
+---
+
+## Hi I'm Scott 👋
+
+I'm a Computer Science student studying CG/Animation/VFX pipelines at Brigham Young University 🛠⚙️.
+
+I'm currently deep in my senior capstone—an animated short about a meet-cute in a crypt. I've architected our pipeline from scratch, feel free to check out all my work at dungeon-pipeline!
+
+Big into: USD, Houdini, board games, and 400 year-old music

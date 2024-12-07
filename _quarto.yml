@@ -1,0 +1,19 @@
+project:
+  type: website
+
+website:
+  title: "Scott Milner — Pipeline TD / Software Dev"
+  navbar:
+    right:
+      - about.qmd
+      - icon: github
+        href: https://github.com/scottdmilner
+      - icon: linkedin
+        href: https://linkedin.com/in/sdmilner
+format:
+  html:
+    theme: darkly
+    css: styles.css
+
+execute:
+  freeze: auto

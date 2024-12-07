@@ -1,0 +1,21 @@
+---
+title: "Home"
+listing:
+  contents: posts
+  sort: "date desc"
+  type: default
+  categories: true
+  sort-ui: false
+  filter-ui: false
+page-layout: full
+title-block-banner: true
+---
+# Hello 👋
+
+My name is Scott, I'm a Computer Science student studying CG/Animation/VFX pipelines at Brigham Young University 🛠⚙️.
+
+I'm currently deep in my senior capstone—an animated short about a meet-cute in a crypt. I've architected our pipeline from scratch, feel free to check out all my work at dungeon-pipeline!
+
+Big into: USD, Houdini, board games, and 400 year-old music
+
+## Check out some of my recent projects below!

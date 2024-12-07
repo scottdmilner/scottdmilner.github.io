@@ -1,0 +1,41 @@
+---
+title: "PipeBot"
+author: "Scott Milner"
+date: "2024-12-01"
+categories: [projects]
+---
+
+::: {#fig-profile}
+![](profile.png){width=40% fig-align="left" .lightbox}
+
+PipeBot's Discord profile
+:::
+
+**PipeBot** is a Discord bot I created to help manage the pipeline for my senior thesis film. 
+
+- **Source Code:** [scottdmilner/pipebot](https://github.com/scottdmilner/pipebot)
+- **Technologies:** Python ([aiohttp](https://aiohttp.org), [disnake](https://disnake.dev/), [PyGithub](https://github.com/PyGithub/PyGithub)), Docker Compose
+
+PipeBot is deployed in a container with Docker Compose, using NGINX and Let's Encrypt for SSL security.
+
+---
+
+Most importantly, **PipeBot** provides a simple way for artists on the team to log bug reports and feature requests on GitHub without needing to make a GitHub account or navigate Github. 
+
+::: {#fig-userxp layout-ncol=3 layout-valign="bottom"}
+![1. Discord slash command](slash-command.png){.lightbox}
+
+![2. Discord pop-up modal](report-modal.png){.lightbox}
+
+![3. Properly tagged GitHub issue](github-issue.png){.lightbox}
+
+The artist's bug reporting experience
+:::
+
+**PipeBot** also processes webhooks from ShotGrid and from pipeline tools running inside DCCs and broadcasts those messages to the team.
+
+::: {#fig-report}
+![](webhook-message.png){width=60% fig-align="left" .lightbox}
+
+Example of a report Discord message coming from a webhook sent to PipeBot
+:::
