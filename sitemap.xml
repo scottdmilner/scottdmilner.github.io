@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://scottdmilner.github.io/posts/pipebot/index.html</loc>
-    <lastmod>2024-12-07T08:41:18.156Z</lastmod>
+    <loc>https://scottdmilner.github.io/index.html</loc>
+    <lastmod>2024-12-08T09:03:50.893Z</lastmod>
+  </url>
+  <url>
+    <loc>https://scottdmilner.github.io/projects/pipebot/index.html</loc>
+    <lastmod>2024-12-08T09:03:50.897Z</lastmod>
   </url>
   <url>
     <loc>https://scottdmilner.github.io/about.html</loc>
-    <lastmod>2024-12-07T08:41:18.152Z</lastmod>
-  </url>
-  <url>
-    <loc>https://scottdmilner.github.io/index.html</loc>
-    <lastmod>2024-12-07T08:41:18.152Z</lastmod>
+    <lastmod>2024-12-08T09:03:50.893Z</lastmod>
   </url>
 </urlset>
