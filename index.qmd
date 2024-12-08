@@ -1,12 +1,14 @@
 ---
 title: "Home"
 listing:
-  contents: posts
-  sort: "date desc"
-  type: default
-  categories: true
-  sort-ui: false
-  filter-ui: false
+  - id: projects
+    contents: projects
+    sort: "date desc"
+    type: grid
+    categories: true
+    sort-ui: false
+    filter-ui: false
+    fields: [image, title, subtitle, description]
 page-layout: full
 title-block-banner: true
 ---
@@ -19,3 +21,6 @@ I'm currently deep in my senior capstone—an animated short about a meet-cute i
 Big into: USD, Houdini, board games, and 400 year-old music
 
 ## Check out some of my recent projects below!
+
+:::{#projects}
+:::

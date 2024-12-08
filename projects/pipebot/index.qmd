@@ -5,12 +5,6 @@ date: "2024-12-01"
 categories: [projects]
 ---
 
-::: {#fig-profile}
-![](profile.png){width=40% fig-align="left" .lightbox}
-
-PipeBot's Discord profile
-:::
-
 **PipeBot** is a Discord bot I created to help manage the pipeline for my senior thesis film. 
 
 - **Source Code:** [scottdmilner/pipebot](https://github.com/scottdmilner/pipebot)
@@ -19,6 +13,12 @@ PipeBot's Discord profile
 PipeBot is deployed in a container with Docker Compose, using NGINX and Let's Encrypt for SSL security.
 
 ---
+
+::: {#fig-profile}
+![](profile.png){width=40% fig-align="left" .lightbox}
+
+PipeBot's Discord profile
+:::
 
 Most importantly, **PipeBot** provides a simple way for artists on the team to log bug reports and feature requests on GitHub without needing to make a GitHub account or navigate Github. 
 
