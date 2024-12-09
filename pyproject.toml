@@ -2,12 +2,12 @@
 name = "scottdmilner-github-io"
 version = "0.1.0"
 description = ""
-authors = ["Your Name <you@example.com>"]
+authors = ["Scott Milner <scottdmilner@gmail.com>"]
 readme = "README.md"
-packages = [{include = "scottdmilner"}]
+package-mode= false
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = ">=3.9"
 quarto-cli = "^1.6.37"
 
 
