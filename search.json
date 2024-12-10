@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Home",
     "section": "",
-    "text": "My name is Scott, I’m a Computer Science student studying CG/Animation/VFX pipelines at Brigham Young University 🛠⚙️.\nI’m currently deep in my senior capstone—an animated short about a meet-cute in a crypt. I’ve architected our pipeline from scratch, feel free to check out all my work at dungeon-pipeline!\nBig into: USD, Houdini, board games, and 400 year-old music\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "My name is Scott, I’m a Computer Science student studying CG/Animation/VFX pipelines at Brigham Young University 🛠⚙️.\nI’m currently deep in my senior capstone—an animated short about a meet-cute in a crypt. I’ve architected our pipeline from scratch, feel free to check out all my work at dungeon-pipeline!\nBig into: USD, Houdini, board games, and 400 year-old music\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html#check-out-some-of-my-recent-projects-below",
@@ -19,6 +19,13 @@
     "title": "PipeBot",
     "section": "",
     "text": "PipeBot is a Discord bot I created to help manage the pipeline for my senior thesis film.\n\nSource Code: scottdmilner/pipebot\nTechnologies: Python (aiohttp, disnake, PyGithub), Docker Compose\n\nPipeBot is deployed in a container with Docker Compose, using NGINX and Let’s Encrypt for SSL security.\n\n\n\n\n\n\n\nFigure 1: PipeBot’s Discord profile\n\n\n\nMost importantly, PipeBot provides a simple way for artists on the team to log bug reports and feature requests on GitHub without needing to make a GitHub account or navigate Github.\n\n\n\n\n\n\n\n\n1. Discord slash command\n\n\n\n\n\n\n\n2. Discord pop-up modal\n\n\n\n\n\n\n\n3. Properly tagged GitHub issue\n\n\n\n\n\n\nFigure 2: The artist’s bug reporting experience\n\n\n\nPipeBot also processes webhooks from ShotGrid and from pipeline tools running inside DCCs and broadcasts those messages to the team.\n\n\n\n\n\n\nFigure 3: Example of a report Discord message coming from a webhook sent to PipeBot"
+  },
+  {
+    "objectID": "projects/tractor-https/index.html",
+    "href": "projects/tractor-https/index.html",
+    "title": "tractor-https",
+    "section": "",
+    "text": "tractor-https adds SSL security and PAM authentication to Pixar’s Tractor renderfarm manager.\n\nSource Code: scottdmilner/tractor-https\nTechnologies: Docker Compose, NGINX, Python, Bash\n\ntractor-https is deployed at Brigham Young University and has rendered two senior capstone films.\n\nOut of the box, Pixar’s Tractor renderfarm manager sends all traffic as unencrypted TCP traffic (mostly HTTP). It requires the studio to implement any security features, including password authentication. tractor-https was created to facilitate attaching BYU Animation’s Tractor instance to the CS Department’s FreeIPA authentication system.\n\n\n\n\n\n\nFigure 1: tractor-https structure\n\n\n\nSince FreeIPA works through Linux sssd, we can create a custom PAM module for Tractor to authenticate with. This requires plaintext passwords to be delivered to the tractor-engine service so it can verify them against the PAM module. To secure this, tractor-https uses NGINX to wrap all HTTP trafic coming from tractor-engine in an SSL layer and transmits it on port 443 instead of 80.\ntractor-engine does not have support for features such as the X-Forwarded-For header that simplify the SSL proxying process, so I use host mode networking to create a fully transparent SSL proxy.\nIn order to communicate with the Tractor Engine via HTTPS, the Tractor Python API needs to be patched to wrap messages in an SSL layer (patch is included in the repo).\nThe crew-sync.sh script regularly queries the host system for updates to the admin and wrangler groups, then updates the crews.config file and notifies the tractor-engine service of the change."
   },
   {
     "objectID": "about.html",

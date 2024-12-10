@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/projects/tractor-https/index.html",
       "/projects/pipebot/index.html"
     ]
   }

@@ -2,14 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://scottdmilner.github.io/index.html</loc>
-    <lastmod>2024-12-09T19:17:16.636Z</lastmod>
+    <lastmod>2024-12-10T00:32:33.601Z</lastmod>
   </url>
   <url>
     <loc>https://scottdmilner.github.io/projects/pipebot/index.html</loc>
-    <lastmod>2024-12-09T19:17:16.640Z</lastmod>
+    <lastmod>2024-12-10T00:32:33.605Z</lastmod>
+  </url>
+  <url>
+    <loc>https://scottdmilner.github.io/projects/tractor-https/index.html</loc>
+    <lastmod>2024-12-10T00:32:33.609Z</lastmod>
   </url>
   <url>
     <loc>https://scottdmilner.github.io/about.html</loc>
-    <lastmod>2024-12-09T19:17:16.636Z</lastmod>
+    <lastmod>2024-12-10T00:32:33.601Z</lastmod>
   </url>
 </urlset>
