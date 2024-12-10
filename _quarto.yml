@@ -12,7 +12,9 @@ website:
         href: https://linkedin.com/in/sdmilner
 format:
   html:
-    theme: darkly
+    theme: 
+      light: flatly
+      dark: darkly
     css: styles.css
 
 execute:

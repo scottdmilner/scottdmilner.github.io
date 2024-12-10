@@ -17,7 +17,7 @@ PipeBot is deployed in a container with Docker Compose, using NGINX and Let's En
 ::: {#fig-profile}
 ![](profile.png){width=40% fig-align="left" .lightbox}
 
-PipeBot's Discord profile
+**PipeBot**'s Discord profile
 :::
 
 Most importantly, **PipeBot** provides a simple way for artists on the team to log bug reports and feature requests on GitHub without needing to make a GitHub account or navigate Github. 
@@ -37,5 +37,5 @@ The artist's bug reporting experience
 ::: {#fig-report}
 ![](webhook-message.png){width=60% fig-align="left" .lightbox}
 
-Example of a report Discord message coming from a webhook sent to PipeBot
+Example of a report Discord message coming from a webhook sent to **PipeBot**
 :::
