@@ -1,7 +1,6 @@
 ---
 title: "tractor-https"
 author: "Scott Milner"
-date: "2024-12-01"
 categories: [projects]
 image: "tractor-logo.png"
 ---
