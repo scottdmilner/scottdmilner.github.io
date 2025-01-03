@@ -46,6 +46,30 @@ Example playblast (animation by [Owen Rand](https://www.linkedin.com/in/owen-ran
 :::
 
 
+## Look Development Pipeline
+
+For look development, artists create maps in Substance Painter then bring them into Solaris to author final materials. **Dungeon Pipeline** includes a custom Qt export UI to hide streamline this process. This UI allows artists to customize normal and displacement map source, and includes support for RenderMan's PxrBumpRoughness normal map type. Artists can also override the default map resolution and export additional maps.
+
+::: {#fig-substance}
+![](substance-export.jpg){width=50% .lightbox}
+
+Substance Painter custom Qt export dialog
+:::
+
+This export UI interfaces with ShotGrid to track asset material variants and keep variant paths consistent. Artists can add a new material variant if needed. After export, the exporter uses `oiiotool` to convert all of the maps to RenderMan standard `.tex` files.
+
+In Solaris, a custom material library HDA looks up the texture path based off of variant information from ShotGrid, then generates a template material with RenderMan and UsdPreviewSurface shaders for the artist to work off of. This detects which maps were exported in the most recent export and only adds the nodes necessary for those particular maps.
+
+Artists then use one of the lighting rigs in the Lookdev HDA (based off of [@looop45](https://github.com/looop45)'s work for [**Accomplice Pipeline**](../accomplice-pipeline/)) to tweak their shaders and render out turnarounds for dailies.
+
+::: {#fig-lookdev layout-ncol=2}
+![HDA parameters](lookdev-node.png){.lightbox}
+
+![Character artist [Landon Warnick](https://www.linkedin.com/in/landon-warnick/), Groom artist [Tiffani Cookson](https://www.linkedin.com/in/tiffani-cookson/)](rayden-turnaround.gif){.lightbox}
+
+Lookdev HDA
+:::
+
 ## ShotGrid Database
 
 **Dungeon Pipeline** uses ShotGrid/Flow Production Tracking as a centralized source of truth for tracking assets and shots. The ShotGrid Database module translates between the JSON-like objects returned by the ShotGrid API and the more Pythonic data structures used by **Dungeon Pipeline**. 
@@ -92,7 +116,7 @@ Shot(assets=[AssetStub(id=7064, disp_name='Rayden'), AssetStub(id=7064, disp_nam
 <!--
 ### Asset Pipeline
 
-### Texture Pipeline
+### Hair
 
 ### Maya/Houdini Shot Build tools
 
