@@ -5,6 +5,14 @@ categories: [accomplice]
 priority: 2
 image: banner.jpg
 source: "[GitHub {{< fa brands github >}}](https://github.com/Student-Accomplice-Pipeline-Team/accomplice_pipe)"
+title-block-banner: banner.jpg
+include-in-header:
+  - text: |
+      <style>
+        .quarto-title-banner, .quarto-title-banner h1.title {
+            color: #ffffff;
+        }
+      </style>
 ---
 
 **Accomplice Pipeline** is a pipeline solution I worked on for the BYU capstone film project [***Student Accomplice***](../../projects/accomplice). 

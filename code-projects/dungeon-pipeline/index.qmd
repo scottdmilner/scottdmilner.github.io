@@ -6,6 +6,7 @@ priority: 10
 image: banner.jpg
 source: "[GitHub {{< fa brands github >}}](https://github.com/scottdmilner/dungeon-pipeline)"
 toc: true
+title-block-banner: banner.jpg
 ---
 
 **Dungeon Pipeline** is a pipeline solution I wrote for my senior capstone short film ***Love & Dungeons*** (working title).
