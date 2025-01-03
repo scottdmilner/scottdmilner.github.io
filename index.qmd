@@ -6,6 +6,7 @@ listing:
     sort: "priority desc"
     type: grid
     fields: [image, categories, title, subtitle, description, source]
+    grid-columns: 4
     field-display-names: 
       source: "Source code"
   - id: projects
