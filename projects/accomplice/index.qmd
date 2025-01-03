@@ -1,0 +1,42 @@
+---
+title: "Student Accomplice"
+author: "Scott Milner"
+categories: [projects]
+priority: 1
+listing:
+  - id: projects
+    contents: ../../../code-projects/*/index.qmd
+    include:
+        categories: accomplice
+    sort: "date desc"
+    type: grid
+    sort-ui: false
+    filter-ui: false
+    fields: [image, title, subtitle, description]
+---
+
+::: {#fig-banner}
+![](banner.jpg){.lightbox width=60% fig-align="left"}
+
+*Student Accomplice*
+:::
+
+***Student Accomplice*** is the BYU Center for Animation's 2024 short film capstone. I worked as a Pipeline TD on this film, supporting ~40 artists. ***Student Accomplice*** has received the following accolades:
+
+- [**Student Academy Award**](https://press.oscars.org/news/award-placements-revealed-2024-student-academy-awardsr)
+- [**College Television Award Nominee**](https://www.televisionacademy.com/news/44-cta-nominees-241204) (still under consideration)
+- [***The Rookies* Film of the Year**](https://www.therookies.co/entries/32526)
+
+
+Read more about what I did on this project here:
+
+::: {#projects}
+:::
+
+To read more about the film itself, check out the [project's profile](https://www.therookies.co/entries/32526) on *The Rookies*!
+
+---
+
+As ***Student Accomplice*** is still under consideration for festivals, it is not available for public viewing at this time.
+
+<!--{{< video vimeo.com/952032098 >}}-->

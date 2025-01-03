@@ -1,0 +1,29 @@
+---
+title: "Love & Dungeons"
+author: "Scott Milner"
+categories: [projects]
+priority: 0
+listing:
+  - id: projects
+    contents: ../../../code-projects/*/index.qmd
+    include:
+        categories: dungeons
+    sort: "date desc"
+    type: grid
+    sort-ui: false
+    filter-ui: false
+    fields: [image, title, subtitle, description]
+---
+
+::: {#fig-banner}
+![](banner.png){.lightbox}
+
+*Love & Dungeons*
+:::
+
+***Love & Dungeons*** (working title) is the BYU Center for Animation's 2025 short film capstone, about a meet-cute between two crypt robbbers. I am currently the lead Pipeline TD on this film, supporting ~50 artists. 
+
+You can read more about the work I'm doing on ***Love & Dungeons*** here:
+
+::: {#projects}
+:::

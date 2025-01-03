@@ -1,26 +1,35 @@
 ---
-title: "Home"
+# title: "Home"
 listing:
+  - id: code-projects
+    contents: code-projects
+    sort: "priority desc"
+    type: grid
+    fields: [image, categories, title, subtitle, description, source]
+    field-display-names: 
+      source: "Source code"
   - id: projects
     contents: projects
-    sort: "date desc"
+    sort: "priority desc"
     type: grid
-    categories: true
-    sort-ui: false
-    filter-ui: false
     fields: [image, title, subtitle, description]
 page-layout: full
 title-block-banner: true
 ---
-# Hello 👋
+## Hello 👋
 
-My name is Scott, I'm a Computer Science student studying CG/Animation/VFX pipelines at Brigham Young University 🛠⚙️.
+My name is Scott, I'm a Computer Science student studying CG/Animation/VFX pipelines and software development at Brigham Young University 🛠⚙️.
 
-I'm currently deep in my senior capstone—an animated short about a meet-cute in a crypt. I've architected our pipeline from scratch, feel free to check out all my work at dungeon-pipeline!
+I'm currently deep in my senior capstone—an animated short about a meet-cute in a crypt. I've architected our pipeline from scratch. Feel free to read about it [here](/code-projects/dungeon-pipeline) or check out the code directly [on Github](https://github.com/scottdmilner/dungeon-pipeline)!
 
 Big into: USD, Houdini, board games, and 400 year-old music
 
-## Check out some of my recent projects below!
+## Check out my recent projects!
 
-:::{#projects}
+::: {#code-projects}
+:::
+
+## Check out films I've worked on!
+
+::: {#projects}
 :::

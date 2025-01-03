@@ -1,0 +1,33 @@
+---
+title: "tractor-https"
+author: "Scott Milner"
+categories: [accomplice, dungeons]
+priority: 5
+image: "tractor-logo.png"
+source: "[GitHub {{< fa brands github >}}](https://github.com/scottdmilner/tractor-https)"
+---
+
+**tractor-https** adds SSL security and PAM authentication to Pixar's Tractor renderfarm manager.
+
+- **Source Code:** [scottdmilner/tractor-https](https://github.com/scottdmilner/tractor-https)
+- **Technologies:** Docker Compose, NGINX, Python, Bash
+
+**tractor-https** is deployed at Brigham Young University and has rendered two senior capstone films.
+
+---
+
+Out of the box, Pixar's Tractor renderfarm manager sends all traffic as unencrypted TCP traffic (mostly HTTP). It requires the studio to implement any security features, including password authentication. **tractor-https** was created to facilitate attaching BYU Animation's Tractor instance to the CS Department's FreeIPA authentication system. 
+
+::: {#fig-diagram}
+![](tractor-https-diagram.jpg){width=80% .lightbox}
+
+**tractor-https** structure
+:::
+
+Since FreeIPA works through Linux `sssd`, we can create a custom PAM module for Tractor to authenticate with. This requires plaintext passwords to be delivered to the `tractor-engine` service so it can verify them against the PAM module. To secure this, **tractor-https** uses NGINX to wrap all HTTP trafic coming from `tractor-engine` in an SSL layer and transmits it on port 443 instead of 80.
+
+`tractor-engine` does not have support for features such as the `X-Forwarded-For` header that simplify the SSL proxying process, so I use host mode networking to create a fully transparent SSL proxy.
+
+In order to communicate with the Tractor Engine via HTTPS, the Tractor Python API needs to be patched to wrap messages in an SSL layer (patch is included in the repo).
+
+The `crew-sync.sh` script regularly queries the host system for updates to the `admin` and `wrangler` groups, then updates the `crews.config` file and notifies the `tractor-engine` service of the change.

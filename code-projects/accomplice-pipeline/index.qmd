@@ -1,0 +1,27 @@
+---
+title: "Accomplice Pipeline"
+author: "Scott Milner"
+categories: [accomplice]
+priority: 2
+image: banner.jpg
+source: "[GitHub {{< fa brands github >}}](https://github.com/Student-Accomplice-Pipeline-Team/accomplice_pipe)"
+---
+
+**Accomplice Pipeline** is a pipeline solution I worked on for the BYU capstone film project [***Student Accomplice***](../../projects/accomplice). 
+
+- **Source Code:** [Student-Accomplice-Pipeline-Team/accomplice_pipe](https://github.com/Student-Accomplice-Pipeline-Team/accomplice_pipe)
+- **Technologies:** Python, Maya, Houdini, RenderMan, Tractor, Substance Painter, Flow Production Tracking (ShotGrid), Nuke, OCIO
+
+***Student Accomplice*** has recieved a Student Academy Award, the Rookies Film of the Year Award, and is currently nominated for a College Television Award (Student Emmy).
+
+---
+
+I joined the **Accomplice Pipeline** team in July of 2023. My work on **Accomplice Pipeline** primarily consisted of 
+
+- Troubleshooting artists' issues around the clock and providing bugfixes
+- Improving developer QoL by hosting the project on GitHub and writing documentation and training on creating local project copies.
+- Adding functionality to Tractor spooling, including denoising with the RenderMan 26 denoiser and generating preview `.mov` files of rendered `.exr`s.
+- Render wrangling and renderfarm monitoring and scripting to keep all farm blades working productively.
+
+
+**Accomplice Pipeline** was succeeded by [**Dungeon Pipeline**](/code-projects/dungeon-pipeline)

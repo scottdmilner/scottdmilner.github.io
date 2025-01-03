@@ -10,6 +10,8 @@ website:
         href: https://github.com/scottdmilner
       - icon: linkedin
         href: https://linkedin.com/in/sdmilner
+  open-graph:
+    locale: en_US
 format:
   html:
     theme: 
