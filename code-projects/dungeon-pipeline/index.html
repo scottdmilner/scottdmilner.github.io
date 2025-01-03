@@ -192,6 +192,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#maya-playblasting" id="toc-maya-playblasting" class="nav-link active" data-scroll-target="#maya-playblasting">Maya Playblasting</a></li>
+  <li><a href="#look-development-pipeline" id="toc-look-development-pipeline" class="nav-link" data-scroll-target="#look-development-pipeline">Look Development Pipeline</a></li>
   <li><a href="#shotgrid-database" id="toc-shotgrid-database" class="nav-link" data-scroll-target="#shotgrid-database">ShotGrid Database</a></li>
   </ul>
 </nav>
@@ -256,6 +257,50 @@ Figure&nbsp;2: Example playblast (animation by <a href="https://www.linkedin.com
 </figure>
 </div>
 </section>
+<section id="look-development-pipeline" class="level2">
+<h2 class="anchored" data-anchor-id="look-development-pipeline">Look Development Pipeline</h2>
+<p>For look development, artists create maps in Substance Painter then bring them into Solaris to author final materials. <strong>Dungeon Pipeline</strong> includes a custom Qt export UI to hide streamline this process. This UI allows artists to customize normal and displacement map source, and includes support for RenderMan’s PxrBumpRoughness normal map type. Artists can also override the default map resolution and export additional maps.</p>
+<div id="fig-substance" class="lightbox quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-substance-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="substance-export.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure&nbsp;3: Substance Painter custom Qt export dialog"><img src="substance-export.jpg" class="img-fluid figure-img" style="width:50.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-substance-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Substance Painter custom Qt export dialog
+</figcaption>
+</figure>
+</div>
+<p>This export UI interfaces with ShotGrid to track asset material variants and keep variant paths consistent. Artists can add a new material variant if needed. After export, the exporter uses <code>oiiotool</code> to convert all of the maps to RenderMan standard <code>.tex</code> files.</p>
+<p>In Solaris, a custom material library HDA looks up the texture path based off of variant information from ShotGrid, then generates a template material with RenderMan and UsdPreviewSurface shaders for the artist to work off of. This detects which maps were exported in the most recent export and only adds the nodes necessary for those particular maps.</p>
+<p>Artists then use one of the lighting rigs in the Lookdev HDA (based off of <a href="https://github.com/looop45"><span class="citation" data-cites="looop45">@looop45</span></a>’s work for <a href="../accomplice-pipeline/"><strong>Accomplice Pipeline</strong></a>) to tweak their shaders and render out turnarounds for dailies.</p>
+<div id="fig-lookdev" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-lookdev-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="lookdev-node.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="HDA parameters"><img src="lookdev-node.png" class="img-fluid figure-img"></a></p>
+<figcaption>HDA parameters</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="rayden-turnaround.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Character artist Landon Warnick, Groom artist Tiffani Cookson"><img src="rayden-turnaround.gif" class="img-fluid figure-img"></a></p>
+<figcaption>Character artist <a href="https://www.linkedin.com/in/landon-warnick/">Landon Warnick</a>, Groom artist <a href="https://www.linkedin.com/in/tiffani-cookson/">Tiffani Cookson</a></figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-lookdev-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: Lookdev HDA
+</figcaption>
+</figure>
+</div>
+</section>
 <section id="shotgrid-database" class="level2">
 <h2 class="anchored" data-anchor-id="shotgrid-database">ShotGrid Database</h2>
 <p><strong>Dungeon Pipeline</strong> uses ShotGrid/Flow Production Tracking as a centralized source of truth for tracking assets and shots. The ShotGrid Database module translates between the JSON-like objects returned by the ShotGrid API and the more Pythonic data structures used by <strong>Dungeon Pipeline</strong>.</p>
@@ -296,7 +341,7 @@ Figure&nbsp;2: Example playblast (animation by <a href="https://www.linkedin.com
 <!--
 ### Asset Pipeline
 
-### Texture Pipeline
+### Hair
 
 ### Maya/Houdini Shot Build tools
 
