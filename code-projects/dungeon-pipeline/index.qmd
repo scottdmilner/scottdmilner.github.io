@@ -79,6 +79,16 @@ To maximize performance in this small-scope project, a single batch call is made
 
 I used [attrs](https://www.attrs.org/en/stable/) and [cattrs](https://catt.rs/en/stable/) to define data structures. In addition to making type checking and IDE autocompletion easier, it also lets us do things like store a Python `set[str]` in a ShotGrid `Text` field, automatically handle nested `Stub` objects sent by ShotGrid, and write and read these Python objects to/from JSON files.
 
+::: {#fig-assetdb layout-ncol=3 layout-valign="bottom"}
+![Maya shot open dialog](maya-shotdb.png){.lightbox}
+
+![Maya asset publish dialog (geometry variants queried)](maya-assetdb.png){.lightbox}
+
+![Houdini asset open dialog (no geometry variants)](houdini-assetdb.png){.lightbox}
+
+ShotGrid database interaction UIs in various DCCs
+:::
+
 Example usage:
 ```{.python .code-overflow-wrap}
 # Import the database module and initialize it with the project ID and SG authentication credentials
