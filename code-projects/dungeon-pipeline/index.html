@@ -317,6 +317,41 @@ Figure&nbsp;4: Lookdev HDA
 <p><strong>Dungeon Pipeline</strong> uses ShotGrid/Flow Production Tracking as a centralized source of truth for tracking assets and shots. The ShotGrid Database module translates between the JSON-like objects returned by the ShotGrid API and the more Pythonic data structures used by <strong>Dungeon Pipeline</strong>.</p>
 <p>To maximize performance in this small-scope project, a single batch call is made to ShotGrid when the database is initialized. This local copy is then referenced instead of making a call to ShotGrid for each access.</p>
 <p>I used <a href="https://www.attrs.org/en/stable/">attrs</a> and <a href="https://catt.rs/en/stable/">cattrs</a> to define data structures. In addition to making type checking and IDE autocompletion easier, it also lets us do things like store a Python <code>set[str]</code> in a ShotGrid <code>Text</code> field, automatically handle nested <code>Stub</code> objects sent by ShotGrid, and write and read these Python objects to/from JSON files.</p>
+<div id="fig-assetdb" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-assetdb-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row quarto-layout-valign-bottom">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="maya-shotdb.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Maya shot open dialog"><img src="maya-shotdb.png" class="img-fluid figure-img"></a></p>
+<figcaption>Maya shot open dialog</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="maya-assetdb.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Maya asset publish dialog (geometry variants queried)"><img src="maya-assetdb.png" class="img-fluid figure-img"></a></p>
+<figcaption>Maya asset publish dialog (geometry variants queried)</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="houdini-assetdb.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Houdini asset open dialog (no geometry variants)"><img src="houdini-assetdb.png" class="img-fluid figure-img"></a></p>
+<figcaption>Houdini asset open dialog (no geometry variants)</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-assetdb-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: ShotGrid database interaction UIs in various DCCs
+</figcaption>
+</figure>
+</div>
 <p>Example usage:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import the database module and initialize it with the project ID and SG authentication credentials</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="im">from</span> pipe.db <span class="im">import</span> DB</span>
