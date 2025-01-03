@@ -2,18 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://scottdmilner.github.io/index.html</loc>
-    <lastmod>2024-12-11T02:01:51.221Z</lastmod>
+    <lastmod>2025-01-03T10:02:57.503Z</lastmod>
   </url>
   <url>
-    <loc>https://scottdmilner.github.io/projects/pipebot/index.html</loc>
-    <lastmod>2024-12-11T02:01:51.221Z</lastmod>
+    <loc>https://scottdmilner.github.io/code-projects/tractor-https/index.html</loc>
+    <lastmod>2025-01-03T10:02:57.503Z</lastmod>
   </url>
   <url>
-    <loc>https://scottdmilner.github.io/projects/tractor-https/index.html</loc>
-    <lastmod>2024-12-11T02:01:51.225Z</lastmod>
+    <loc>https://scottdmilner.github.io/code-projects/dungeon-pipeline/index.html</loc>
+    <lastmod>2025-01-03T10:02:57.487Z</lastmod>
+  </url>
+  <url>
+    <loc>https://scottdmilner.github.io/projects/dungeons/index.html</loc>
+    <lastmod>2025-01-03T10:02:57.515Z</lastmod>
+  </url>
+  <url>
+    <loc>https://scottdmilner.github.io/projects/accomplice/index.html</loc>
+    <lastmod>2025-01-03T10:02:57.503Z</lastmod>
   </url>
   <url>
     <loc>https://scottdmilner.github.io/about.html</loc>
-    <lastmod>2024-12-11T02:01:51.221Z</lastmod>
+    <lastmod>2025-01-03T10:02:57.479Z</lastmod>
+  </url>
+  <url>
+    <loc>https://scottdmilner.github.io/code-projects/accomplice-pipeline/index.html</loc>
+    <lastmod>2025-01-03T10:02:57.483Z</lastmod>
+  </url>
+  <url>
+    <loc>https://scottdmilner.github.io/code-projects/pipebot/index.html</loc>
+    <lastmod>2025-01-03T10:02:57.499Z</lastmod>
   </url>
 </urlset>
