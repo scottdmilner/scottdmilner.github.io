@@ -15,7 +15,7 @@ listing:
     type: grid
     fields: [image, title, subtitle, description]
 page-layout: full
-title-block-banner: true
+image: profile.jpg
 ---
 ## Hello 👋
 

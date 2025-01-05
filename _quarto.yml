@@ -5,6 +5,8 @@ website:
   title: "Scott Milner — Pipeline TD / Software Dev"
   navbar:
     right:
+      - text: Home
+        href: index.qmd
       - about.qmd
       - text: Resume
         href: files/SCOTT_MILNER_Resume.pdf
@@ -17,7 +19,7 @@ website:
     locale: en_US
 format:
   html:
-    theme: 
+    theme:
       light: flatly
       dark: darkly
     css: styles.css
