@@ -26,6 +26,28 @@ The **Dungeon Pipline** codebase is fully [Black](https://black.readthedocs.io/e
 
 ---
 
+## Using Universal Scene Description (USD)
+
+**Dungeon Pipeline** uses Pixar's Universal Scene Description (USD) for all data transfer between DCCs and for rendering. 
+
+### USD in Maya
+Additional tooling is needed for efficient USD export from Maya. Since Maya does not yet come bundled with USD v24+, we cannot directly write USD files to network drives when on Windows. If needed, export scripts export files to tmp directories and copy them to their correct location.
+
+A [chaser script](https://github.com/scottdmilner/dungeon-pipeline/blob/prod/pipeline/pipe/m/publish/usdchaser.py) is used to post-process Maya exports as Maya itself provides minimal control over the structure of exported prims:
+
+- Exported character rigs are scaled down to Houdini scale and material bindings are moved to be adjacent to the geometry primitives so they can be referenced in easier
+- Exported cameras are located whereever they fall in the scene graph (ie previs cameras may be located in multiple places in a scene file), and moved to a conssistent location.
+- Exported animations scaled down to Houdini scale, then partitioned by namespace into layers and referenced back into the root layer. The static rig layers are also layerd in so that animation data is included in the scene via an Inherit arc on the static rig. Value Clips are used to partition the animation data into two time ranges so that shot preroll is only loaded when needed.
+
+Environments are constructed in Solaris, then the animation shot build tools import the environment as a USD stage back into Maya for animation. The shot build tool sets the stage Edit Target to an override layer, allowing animators to make shot-specific tweaks to an environment without editing the original environment, such as moving and toggling visibility on set pieces. Environment artists can create Variant arcs so that entire groups of assets can be toggled on and off in Maya.
+
+<!-- ### USD in Houdini
+
+In Houdini, **Dungeon Pipeline** makes use of the Solaris Component Builder workflow for assembling and publishing assets. Python `OnCreated` scripts provide a set of custom defaults on SideFX's component builder nodes. The Compo
+
+Characters -->
+
+
 ## Maya Playblasting
 
 **Dungeon Pipeline** uses [@abstractfactory](https://github.com/abstractfactory)'s excellent [**maya-capture**](https://github.com/abstractfactory/maya-capture) script to standardize the export resolution and aspect, among other things. In the process of integrating **maya-capture** into **Dungeon Pipeline**, I made [several contributions](https://github.com/abstractfactory/maya-capture/commits?author=scottdmilner) to **maya-capture**, adding the ability to playblast from Maya's Camera Sequencer and fixing a bug that appeared when playblasting after configuring the Camera Sequencer.
@@ -35,7 +57,7 @@ With **maya-capture** providing the base playblast functionality, I added functi
 ::: {#fig-playblastui layout-ncol=2 layout-valign="bottom"}
 ![**Previs** — many shots per file, camera sequencer option](previs-playblast.png){.lightbox}
 
-![**Animation** — one shot per file, no camera sequencer](anim-playblast.png){.lightbox}
+![**Animation** — one shot per file, pulls frame range from ShotGrid](anim-playblast.png){.lightbox}
 
 Playblast dialog variants
 :::
