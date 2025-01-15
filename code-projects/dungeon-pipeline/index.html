@@ -208,6 +208,7 @@ background-size: cover;
   <li><a href="#using-universal-scene-description-usd" id="toc-using-universal-scene-description-usd" class="nav-link active" data-scroll-target="#using-universal-scene-description-usd">Using Universal Scene Description (USD)</a>
   <ul class="collapse">
   <li><a href="#usd-in-maya" id="toc-usd-in-maya" class="nav-link" data-scroll-target="#usd-in-maya">USD in Maya</a></li>
+  <li><a href="#usd-in-houdini" id="toc-usd-in-houdini" class="nav-link" data-scroll-target="#usd-in-houdini">USD in Houdini</a></li>
   </ul></li>
   <li><a href="#maya-playblasting" id="toc-maya-playblasting" class="nav-link" data-scroll-target="#maya-playblasting">Maya Playblasting</a></li>
   <li><a href="#look-development-pipeline" id="toc-look-development-pipeline" class="nav-link" data-scroll-target="#look-development-pipeline">Look Development Pipeline</a></li>
@@ -246,11 +247,66 @@ background-size: cover;
 <li>Exported animations scaled down to Houdini scale, then partitioned by namespace into layers and referenced back into the root layer. The static rig layers are also layerd in so that animation data is included in the scene via an Inherit arc on the static rig. Value Clips are used to partition the animation data into two time ranges so that shot preroll is only loaded when needed.</li>
 </ul>
 <p>Environments are constructed in Solaris, then the animation shot build tools import the environment as a USD stage back into Maya for animation. The shot build tool sets the stage Edit Target to an override layer, allowing animators to make shot-specific tweaks to an environment without editing the original environment, such as moving and toggling visibility on set pieces. Environment artists can create Variant arcs so that entire groups of assets can be toggled on and off in Maya.</p>
-<!-- ### USD in Houdini
-
-In Houdini, **Dungeon Pipeline** makes use of the Solaris Component Builder workflow for assembling and publishing assets. Python `OnCreated` scripts provide a set of custom defaults on SideFX's component builder nodes. The Compo
-
-Characters -->
+</section>
+<section id="usd-in-houdini" class="level3">
+<h3 class="anchored" data-anchor-id="usd-in-houdini">USD in Houdini</h3>
+<p>In Houdini, <strong>Dungeon Pipeline</strong> makes use of the Solaris Component Builder workflow for assembling and publishing assets. Python <code>OnCreated</code> scripts provide a set of custom defaults on SideFX’s component builder nodes. A default harness is provided inside of the Component Geometry Node to clean up the geometry and generate proxy geometry and packed UVs.</p>
+<div id="fig-component-builder" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-component-builder-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="component-geo.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Asset with multiple variants"><img src="component-geo.png" class="img-fluid figure-img"></a></p>
+<figcaption>Asset with multiple variants</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="component-sop.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Geometry cleanup harness"><img src="component-sop.png" class="img-fluid figure-img"></a></p>
+<figcaption>Geometry cleanup harness</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-component-builder-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Solaris Component Builder
+</figcaption>
+</figure>
+</div>
+<p>Environments artists can drop in custom node setups that use context options to organize all of the assets in the scene graph to match the structure of the node graph.</p>
+<div id="fig-environments" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-environments-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="environment-build.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Example nodegraph with the Scene Graph it generates"><img src="environment-build.png" class="img-fluid figure-img"></a></p>
+<figcaption>Example nodegraph with the Scene Graph it generates</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="environment-ex.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Nodegraph assembling an environment"><img src="environment-ex.png" class="img-fluid figure-img"></a></p>
+<figcaption>Nodegraph assembling an environment</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-environments-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Assembling environments in Solaris
+</figcaption>
+</figure>
+</div>
+<!-- characters -->
 </section>
 </section>
 <section id="maya-playblasting" class="level2">
@@ -264,7 +320,7 @@ Characters -->
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="previs-playblast.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Previs — many shots per file, camera sequencer option"><img src="previs-playblast.png" class="img-fluid figure-img"></a></p>
+<p><a href="previs-playblast.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Previs — many shots per file, camera sequencer option"><img src="previs-playblast.png" class="img-fluid figure-img"></a></p>
 <figcaption><strong>Previs</strong> — many shots per file, camera sequencer option</figcaption>
 </figure>
 </div>
@@ -272,7 +328,7 @@ Characters -->
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="anim-playblast.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Animation — one shot per file, pulls frame range from ShotGrid"><img src="anim-playblast.png" class="img-fluid figure-img"></a></p>
+<p><a href="anim-playblast.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Animation — one shot per file, pulls frame range from ShotGrid"><img src="anim-playblast.png" class="img-fluid figure-img"></a></p>
 <figcaption><strong>Animation</strong> — one shot per file, pulls frame range from ShotGrid</figcaption>
 </figure>
 </div>
@@ -280,17 +336,17 @@ Characters -->
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-playblastui-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Playblast dialog variants
+Figure&nbsp;3: Playblast dialog variants
 </figcaption>
 </figure>
 </div>
 <div id="fig-playblast" class="lightbox quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-playblast-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="playblast.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;2: Example playblast (animation by Owen Rand)"><img src="playblast.gif" class="img-fluid figure-img"></a>
+<a href="playblast.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Figure&nbsp;4: Example playblast (animation by Owen Rand)"><img src="playblast.gif" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-playblast-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: Example playblast (animation by <a href="https://www.linkedin.com/in/owen-rand-9874237a">Owen Rand</a>)
+Figure&nbsp;4: Example playblast (animation by <a href="https://www.linkedin.com/in/owen-rand-9874237a">Owen Rand</a>)
 </figcaption>
 </figure>
 </div>
@@ -306,7 +362,7 @@ Figure&nbsp;2: Example playblast (animation by <a href="https://www.linkedin.com
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="substance-export.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Substance Painter custom Qt export dialog"><img src="substance-export.jpg" class="img-fluid figure-img"></a></p>
+<p><a href="substance-export.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Substance Painter custom Qt export dialog"><img src="substance-export.jpg" class="img-fluid figure-img"></a></p>
 <figcaption>Substance Painter custom Qt export dialog</figcaption>
 </figure>
 </div>
@@ -314,7 +370,7 @@ Figure&nbsp;2: Example playblast (animation by <a href="https://www.linkedin.com
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="rayden-matlib.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Automatically generated material networks in Solaris"><img src="rayden-matlib.png" class="img-fluid figure-img"></a></p>
+<p><a href="rayden-matlib.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Automatically generated material networks in Solaris"><img src="rayden-matlib.png" class="img-fluid figure-img"></a></p>
 <figcaption>Automatically generated material networks in Solaris</figcaption>
 </figure>
 </div>
@@ -322,7 +378,7 @@ Figure&nbsp;2: Example playblast (animation by <a href="https://www.linkedin.com
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-substance-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3: Textures from Substance Painter into Houdini
+Figure&nbsp;5: Textures from Substance Painter into Houdini
 </figcaption>
 </figure>
 </div>
@@ -335,7 +391,7 @@ Figure&nbsp;3: Textures from Substance Painter into Houdini
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="lookdev-node.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="HDA parameters"><img src="lookdev-node.png" class="img-fluid figure-img"></a></p>
+<p><a href="lookdev-node.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="HDA parameters"><img src="lookdev-node.png" class="img-fluid figure-img"></a></p>
 <figcaption>HDA parameters</figcaption>
 </figure>
 </div>
@@ -343,7 +399,7 @@ Figure&nbsp;3: Textures from Substance Painter into Houdini
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="rayden-turnaround.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Character artist Landon Warnick, Groom artist Tiffani Cookson"><img src="rayden-turnaround.gif" class="img-fluid figure-img"></a></p>
+<p><a href="rayden-turnaround.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-11" title="Character artist Landon Warnick, Groom artist Tiffani Cookson"><img src="rayden-turnaround.gif" class="img-fluid figure-img"></a></p>
 <figcaption>Character artist <a href="https://www.linkedin.com/in/landon-warnick/">Landon Warnick</a>, Groom artist <a href="https://www.linkedin.com/in/tiffani-cookson/">Tiffani Cookson</a></figcaption>
 </figure>
 </div>
@@ -351,7 +407,7 @@ Figure&nbsp;3: Textures from Substance Painter into Houdini
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-lookdev-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4: Lookdev HDA
+Figure&nbsp;6: Lookdev HDA
 </figcaption>
 </figure>
 </div>
@@ -368,7 +424,7 @@ Figure&nbsp;4: Lookdev HDA
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="maya-shotdb.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Maya shot open dialog"><img src="maya-shotdb.png" class="img-fluid figure-img"></a></p>
+<p><a href="maya-shotdb.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="Maya shot open dialog"><img src="maya-shotdb.png" class="img-fluid figure-img"></a></p>
 <figcaption>Maya shot open dialog</figcaption>
 </figure>
 </div>
@@ -376,7 +432,7 @@ Figure&nbsp;4: Lookdev HDA
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="maya-assetdb.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Maya asset publish dialog (geometry variants queried)"><img src="maya-assetdb.png" class="img-fluid figure-img"></a></p>
+<p><a href="maya-assetdb.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13" title="Maya asset publish dialog (geometry variants queried)"><img src="maya-assetdb.png" class="img-fluid figure-img"></a></p>
 <figcaption>Maya asset publish dialog (geometry variants queried)</figcaption>
 </figure>
 </div>
@@ -384,7 +440,7 @@ Figure&nbsp;4: Lookdev HDA
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="houdini-assetdb.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="Houdini asset open dialog (no geometry variants)"><img src="houdini-assetdb.png" class="img-fluid figure-img"></a></p>
+<p><a href="houdini-assetdb.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14" title="Houdini asset open dialog (no geometry variants)"><img src="houdini-assetdb.png" class="img-fluid figure-img"></a></p>
 <figcaption>Houdini asset open dialog (no geometry variants)</figcaption>
 </figure>
 </div>
@@ -392,7 +448,7 @@ Figure&nbsp;4: Lookdev HDA
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-assetdb-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5: ShotGrid database interaction UIs in various DCCs
+Figure&nbsp;7: ShotGrid database interaction UIs in various DCCs
 </figcaption>
 </figure>
 </div>
