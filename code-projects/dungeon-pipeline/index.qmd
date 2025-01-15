@@ -41,12 +41,29 @@ A [chaser script](https://github.com/scottdmilner/dungeon-pipeline/blob/prod/pip
 
 Environments are constructed in Solaris, then the animation shot build tools import the environment as a USD stage back into Maya for animation. The shot build tool sets the stage Edit Target to an override layer, allowing animators to make shot-specific tweaks to an environment without editing the original environment, such as moving and toggling visibility on set pieces. Environment artists can create Variant arcs so that entire groups of assets can be toggled on and off in Maya.
 
-<!-- ### USD in Houdini
+### USD in Houdini
 
-In Houdini, **Dungeon Pipeline** makes use of the Solaris Component Builder workflow for assembling and publishing assets. Python `OnCreated` scripts provide a set of custom defaults on SideFX's component builder nodes. The Compo
+In Houdini, **Dungeon Pipeline** makes use of the Solaris Component Builder workflow for assembling and publishing assets. Python `OnCreated` scripts provide a set of custom defaults on SideFX's component builder nodes. A default harness is provided inside of the Component Geometry Node to clean up the geometry and generate proxy geometry and packed UVs.
 
-Characters -->
+::: {#fig-component-builder layout-ncol=2}
+![Asset with multiple variants](component-geo.png){.lightbox}
 
+![Geometry cleanup harness](component-sop.png){.lightbox}
+
+Solaris Component Builder
+:::
+
+Environments artists can drop in custom node setups that use context options to organize all of the assets in the scene graph to match the structure of the node graph.
+
+::: {#fig-environments layout-ncol=2}
+![Example nodegraph with the Scene Graph it generates](environment-build.png){.lightbox}
+
+![Nodegraph assembling an environment](environment-ex.png){.lightbox}
+
+Assembling environments in Solaris
+:::
+
+<!-- characters -->
 
 ## Maya Playblasting
 
