@@ -73,8 +73,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-41afc036f4045670d8a63ab41900e02e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-a040cd6abc73b98b2f4c673569425434.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-04dd6a5ca28aac96903e51a8fbffbcaa.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-b3883a83b6cdceb4314f965facc5c958.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="../../site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
 <script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
@@ -205,7 +205,11 @@ background-size: cover;
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#maya-playblasting" id="toc-maya-playblasting" class="nav-link active" data-scroll-target="#maya-playblasting">Maya Playblasting</a></li>
+  <li><a href="#using-universal-scene-description-usd" id="toc-using-universal-scene-description-usd" class="nav-link active" data-scroll-target="#using-universal-scene-description-usd">Using Universal Scene Description (USD)</a>
+  <ul class="collapse">
+  <li><a href="#usd-in-maya" id="toc-usd-in-maya" class="nav-link" data-scroll-target="#usd-in-maya">USD in Maya</a></li>
+  </ul></li>
+  <li><a href="#maya-playblasting" id="toc-maya-playblasting" class="nav-link" data-scroll-target="#maya-playblasting">Maya Playblasting</a></li>
   <li><a href="#look-development-pipeline" id="toc-look-development-pipeline" class="nav-link" data-scroll-target="#look-development-pipeline">Look Development Pipeline</a></li>
   <li><a href="#shotgrid-database" id="toc-shotgrid-database" class="nav-link" data-scroll-target="#shotgrid-database">ShotGrid Database</a></li>
   </ul>
@@ -229,6 +233,26 @@ background-size: cover;
 <p>The <strong>Dungeon Pipline</strong> codebase is fully <a href="https://black.readthedocs.io/en/stable/">Black</a> compliant and uses <a href="https://mypy.readthedocs.io/en/stable/">mypy</a> for static type checking whenever possible.</p>
 <p><strong>Dungeon Pipeline</strong> has a lot of different components, read below to learn about some of the highlights!</p>
 <hr>
+<section id="using-universal-scene-description-usd" class="level2">
+<h2 class="anchored" data-anchor-id="using-universal-scene-description-usd">Using Universal Scene Description (USD)</h2>
+<p><strong>Dungeon Pipeline</strong> uses Pixar’s Universal Scene Description (USD) for all data transfer between DCCs and for rendering.</p>
+<section id="usd-in-maya" class="level3">
+<h3 class="anchored" data-anchor-id="usd-in-maya">USD in Maya</h3>
+<p>Additional tooling is needed for efficient USD export from Maya. Since Maya does not yet come bundled with USD v24+, we cannot directly write USD files to network drives when on Windows. If needed, export scripts export files to tmp directories and copy them to their correct location.</p>
+<p>A <a href="https://github.com/scottdmilner/dungeon-pipeline/blob/prod/pipeline/pipe/m/publish/usdchaser.py">chaser script</a> is used to post-process Maya exports as Maya itself provides minimal control over the structure of exported prims:</p>
+<ul>
+<li>Exported character rigs are scaled down to Houdini scale and material bindings are moved to be adjacent to the geometry primitives so they can be referenced in easier</li>
+<li>Exported cameras are located whereever they fall in the scene graph (ie previs cameras may be located in multiple places in a scene file), and moved to a conssistent location.</li>
+<li>Exported animations scaled down to Houdini scale, then partitioned by namespace into layers and referenced back into the root layer. The static rig layers are also layerd in so that animation data is included in the scene via an Inherit arc on the static rig. Value Clips are used to partition the animation data into two time ranges so that shot preroll is only loaded when needed.</li>
+</ul>
+<p>Environments are constructed in Solaris, then the animation shot build tools import the environment as a USD stage back into Maya for animation. The shot build tool sets the stage Edit Target to an override layer, allowing animators to make shot-specific tweaks to an environment without editing the original environment, such as moving and toggling visibility on set pieces. Environment artists can create Variant arcs so that entire groups of assets can be toggled on and off in Maya.</p>
+<!-- ### USD in Houdini
+
+In Houdini, **Dungeon Pipeline** makes use of the Solaris Component Builder workflow for assembling and publishing assets. Python `OnCreated` scripts provide a set of custom defaults on SideFX's component builder nodes. The Compo
+
+Characters -->
+</section>
+</section>
 <section id="maya-playblasting" class="level2">
 <h2 class="anchored" data-anchor-id="maya-playblasting">Maya Playblasting</h2>
 <p><strong>Dungeon Pipeline</strong> uses <a href="https://github.com/abstractfactory"><span class="citation" data-cites="abstractfactory">@abstractfactory</span></a>’s excellent <a href="https://github.com/abstractfactory/maya-capture"><strong>maya-capture</strong></a> script to standardize the export resolution and aspect, among other things. In the process of integrating <strong>maya-capture</strong> into <strong>Dungeon Pipeline</strong>, I made <a href="https://github.com/abstractfactory/maya-capture/commits?author=scottdmilner">several contributions</a> to <strong>maya-capture</strong>, adding the ability to playblast from Maya’s Camera Sequencer and fixing a bug that appeared when playblasting after configuring the Camera Sequencer.</p>
@@ -248,8 +272,8 @@ background-size: cover;
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="anim-playblast.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Animation — one shot per file, no camera sequencer"><img src="anim-playblast.png" class="img-fluid figure-img"></a></p>
-<figcaption><strong>Animation</strong> — one shot per file, no camera sequencer</figcaption>
+<p><a href="anim-playblast.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Animation — one shot per file, pulls frame range from ShotGrid"><img src="anim-playblast.png" class="img-fluid figure-img"></a></p>
+<figcaption><strong>Animation</strong> — one shot per file, pulls frame range from ShotGrid</figcaption>
 </figure>
 </div>
 </div>
