@@ -9,7 +9,7 @@ toc: true
 title-block-banner: banner.jpg
 ---
 
-**Dungeon Pipeline** is a pipeline solution I wrote for my senior capstone short film ***Love & Dungeons*** (working title).
+**Dungeon Pipeline** is a pipeline solution I wrote for my senior capstone short film ***Love & Gold***.
 
 - **Source Code:** [scottdmilner/dungeon-pipeline](https://github.com/scottdmilner/dungeon-pipeline)
 - **Technologies:** Python, Maya, Houdini, RenderMan, Tractor, Substance Painter, Flow Production Tracking (ShotGrid), Nuke, OCIO, OIIO, Unreal Engine
@@ -63,7 +63,7 @@ Environments artists can drop in custom node setups that use context options to 
 Assembling environments in Solaris
 :::
 
-<!-- characters -->
+<!-- characters -->git 
 
 ## Maya Playblasting
 

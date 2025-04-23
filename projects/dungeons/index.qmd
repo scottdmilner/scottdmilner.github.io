@@ -1,5 +1,5 @@
 ---
-title: "Love & Dungeons"
+title: "Love & Gold"
 author: "Scott Milner"
 categories: [projects]
 priority: 0
@@ -18,12 +18,12 @@ listing:
 ::: {#fig-banner}
 ![](banner.png){.lightbox}
 
-*Love & Dungeons*
+*Love & Gold*
 :::
 
-***Love & Dungeons*** (working title) is the BYU Center for Animation's 2025 short film capstone, about a meet-cute between two crypt robbbers. I am currently the lead Pipeline TD on this film, supporting ~50 artists. 
+***Love & Gold*** is the BYU Center for Animation's 2025 short film capstone, about a meet-cute between two crypt robbbers. I am currently the lead Pipeline TD on this film, supporting ~50 artists. 
 
-You can read more about the work I'm doing on ***Love & Dungeons*** here:
+You can read more about the work I'm doing on ***Love & Gold*** here:
 
 ::: {#projects}
 :::
