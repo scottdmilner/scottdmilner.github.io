@@ -1,5 +1,19 @@
 [
   {
+    "objectID": "code-projects/tractor-https/index.html",
+    "href": "code-projects/tractor-https/index.html",
+    "title": "tractor-https",
+    "section": "",
+    "text": "tractor-https adds SSL security and PAM authentication to Pixar’s Tractor renderfarm manager.\n\nSource Code: scottdmilner/tractor-https\nTechnologies: Docker Compose, NGINX, Python, Bash\n\ntractor-https is deployed at Brigham Young University and has rendered two senior capstone films.\n\nOut of the box, Pixar’s Tractor renderfarm manager sends all traffic as unencrypted TCP traffic (mostly HTTP). It requires the studio to implement any security features, including password authentication. tractor-https was created to facilitate attaching BYU Animation’s Tractor instance to the CS Department’s FreeIPA authentication system.\n\n\n\n\n\n\nFigure 1: tractor-https structure\n\n\n\nSince FreeIPA works through Linux sssd, we can create a custom PAM module for Tractor to authenticate with. This requires plaintext passwords to be delivered to the tractor-engine service so it can verify them against the PAM module. To secure this, tractor-https uses NGINX to wrap all HTTP trafic coming from tractor-engine in an SSL layer and transmits it on port 443 instead of 80.\ntractor-engine does not have support for features such as the X-Forwarded-For header that simplify the SSL proxying process, so I use host mode networking to create a fully transparent SSL proxy.\nIn order to communicate with the Tractor Engine via HTTPS, the Tractor Python API needs to be patched to wrap messages in an SSL layer (patch is included in the repo).\nThe crew-sync.sh script regularly queries the host system for updates to the admin and wrangler groups, then updates the crews.config file and notifies the tractor-engine service of the change."
+  },
+  {
+    "objectID": "code-projects/accomplice-pipeline/index.html",
+    "href": "code-projects/accomplice-pipeline/index.html",
+    "title": "Accomplice Pipeline",
+    "section": "",
+    "text": "Accomplice Pipeline is a pipeline solution I worked on for the BYU capstone film project Student Accomplice.\n\nSource Code: Student-Accomplice-Pipeline-Team/accomplice_pipe\nTechnologies: Python, Maya, Houdini, RenderMan, Tractor, Substance Painter, Flow Production Tracking (ShotGrid), Nuke, OCIO\n\nStudent Accomplice has recieved a Student Academy Award, the Rookies Film of the Year Award, and is currently nominated for a College Television Award (Student Emmy).\n\nI joined the Accomplice Pipeline team in July of 2023. My work on Accomplice Pipeline primarily consisted of\n\nTroubleshooting artists’ issues around the clock and providing bugfixes\nImproving developer QoL by hosting the project on GitHub and writing documentation and training on creating local project copies.\nAdding functionality to Tractor spooling, including denoising with the RenderMan 26 denoiser and generating preview .mov files of rendered .exrs.\nRender wrangling and renderfarm monitoring and scripting to keep all farm blades working productively.\n\nAccomplice Pipeline was succeeded by Dungeon Pipeline"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Scott Milner — Pipeline TD / Software Dev",
@@ -25,35 +39,56 @@
     "href": "index.html#check-out-films-ive-worked-on",
     "title": "Scott Milner — Pipeline TD / Software Dev",
     "section": "Check out films I’ve worked on!",
-    "text": "Check out films I’ve worked on!\n\n\n\n\n\n\n\n\nStudent Accomplice\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLove & Dungeons\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Check out films I’ve worked on!\n\n\n\n\n\n\n\n\nStudent Accomplice\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLove & Gold\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "projects/accomplice/index.html",
+    "href": "projects/accomplice/index.html",
+    "title": "Student Accomplice",
+    "section": "",
+    "text": "Figure 1: Student Accomplice\n\n\n\nStudent Accomplice is the BYU Center for Animation’s 2024 short film capstone. I worked as a Pipeline TD on this film, supporting ~40 artists. Student Accomplice has received the following accolades:\n\nStudent Academy Award\nCollege Television Award Winner\nThe Rookies Film of the Year\nVisual Effects Society Award Nominee\nPixar’s Very Official RenderMan Blooper Award\n\nRead more about what I did on this project here:\n\n\n\n\n\n\n\n\n\n\nAccomplice Pipeline\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ntractor-https\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\n\nTo read more about the film itself, check out the project’s profile on The Rookies!\n\nAs Student Accomplice is still under consideration for festivals, it is not available for public viewing at this time."
   },
   {
     "objectID": "projects/dungeons/index.html",
     "href": "projects/dungeons/index.html",
-    "title": "Love & Dungeons",
+    "title": "Love & Gold",
     "section": "",
-    "text": "Figure 1: Love & Dungeons\n\n\n\nLove & Dungeons (working title) is the BYU Center for Animation’s 2025 short film capstone, about a meet-cute between two crypt robbbers. I am currently the lead Pipeline TD on this film, supporting ~50 artists.\nYou can read more about the work I’m doing on Love & Dungeons here:\n\n\n\n\n\n\n\n\n\n\nDungeon Pipeline\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPipeBot\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ntractor-https\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Figure 1: Love & Gold\n\n\n\nLove & Gold is the BYU Center for Animation’s 2025 short film capstone, about a meet-cute between two crypt robbbers. I am currently the lead Pipeline TD on this film, supporting ~50 artists.\nYou can read more about the work I’m doing on Love & Gold here:\n\n\n\n\n\n\n\n\n\n\nDungeon Pipeline\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPipeBot\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ntractor-https\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "code-projects/tractor-https/index.html",
-    "href": "code-projects/tractor-https/index.html",
-    "title": "tractor-https",
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
     "section": "",
-    "text": "tractor-https adds SSL security and PAM authentication to Pixar’s Tractor renderfarm manager.\n\nSource Code: scottdmilner/tractor-https\nTechnologies: Docker Compose, NGINX, Python, Bash\n\ntractor-https is deployed at Brigham Young University and has rendered two senior capstone films.\n\nOut of the box, Pixar’s Tractor renderfarm manager sends all traffic as unencrypted TCP traffic (mostly HTTP). It requires the studio to implement any security features, including password authentication. tractor-https was created to facilitate attaching BYU Animation’s Tractor instance to the CS Department’s FreeIPA authentication system.\n\n\n\n\n\n\nFigure 1: tractor-https structure\n\n\n\nSince FreeIPA works through Linux sssd, we can create a custom PAM module for Tractor to authenticate with. This requires plaintext passwords to be delivered to the tractor-engine service so it can verify them against the PAM module. To secure this, tractor-https uses NGINX to wrap all HTTP trafic coming from tractor-engine in an SSL layer and transmits it on port 443 instead of 80.\ntractor-engine does not have support for features such as the X-Forwarded-For header that simplify the SSL proxying process, so I use host mode networking to create a fully transparent SSL proxy.\nIn order to communicate with the Tractor Engine via HTTPS, the Tractor Python API needs to be patched to wrap messages in an SSL layer (patch is included in the repo).\nThe crew-sync.sh script regularly queries the host system for updates to the admin and wrangler groups, then updates the crews.config file and notifies the tractor-engine service of the change."
+    "text": "My name is Scott, I’m a Computer Science student studying CG/Animation/VFX pipelines and software development at Brigham Young University 🛠⚙️.\nI’m currently deep in my senior capstone—an animated short about a meet-cute in a crypt. I’ve architected our pipeline from scratch. Feel free to read about it here or check out the code directly on Github!"
+  },
+  {
+    "objectID": "about.html#hi-im-scott",
+    "href": "about.html#hi-im-scott",
+    "title": "About",
+    "section": "",
+    "text": "My name is Scott, I’m a Computer Science student studying CG/Animation/VFX pipelines and software development at Brigham Young University 🛠⚙️.\nI’m currently deep in my senior capstone—an animated short about a meet-cute in a crypt. I’ve architected our pipeline from scratch. Feel free to read about it here or check out the code directly on Github!"
+  },
+  {
+    "objectID": "code-projects/pipebot/index.html",
+    "href": "code-projects/pipebot/index.html",
+    "title": "PipeBot",
+    "section": "",
+    "text": "PipeBot is a Discord bot I created to help manage the pipeline for my senior thesis film.\n\nSource Code: scottdmilner/pipebot\nTechnologies: Python (aiohttp, disnake, PyGithub), Docker Compose\n\nPipeBot is deployed in a container with Docker Compose, using NGINX and Let’s Encrypt for SSL security.\n\n\n\n\n\n\n\nFigure 1: PipeBot’s Discord profile\n\n\n\nMost importantly, PipeBot provides a simple way for artists on the team to log bug reports and feature requests on GitHub without needing to make a GitHub account or navigate Github.\n\n\n\n\n\n\n\n\n1. Discord slash command\n\n\n\n\n\n\n\n2. Discord pop-up modal\n\n\n\n\n\n\n\n3. Properly tagged GitHub issue\n\n\n\n\n\n\nFigure 2: The artist’s bug reporting experience\n\n\n\nPipeBot also processes webhooks from ShotGrid and from pipeline tools running inside DCCs and broadcasts those messages to the team.\n\n\n\n\n\n\nFigure 3: Example of a report Discord message coming from a webhook sent to PipeBot"
   },
   {
     "objectID": "code-projects/dungeon-pipeline/index.html",
     "href": "code-projects/dungeon-pipeline/index.html",
     "title": "Dungeon Pipeline",
     "section": "",
-    "text": "Dungeon Pipeline is a pipeline solution I wrote for my senior capstone short film Love & Dungeons (working title).\nIt includes customizable DCC launchers, import/export tools, Maya playblast tools, shot building tools for Maya and Houdini, and rendering and Tractor submission tools. The project is currently ongoing, thus Dungeon Pipeline is still under development. Dungeon Pipeline serves a team of ~50 artists, with the film slated to finish in May 2025.\nWork on Dungeon Pipeline started in December of 2023. My goal was to take what I had learned from working on Accomplice Pipeline with Matthew Minson (@maminson) and do a clean rebuild from the ground up.\nThe Dungeon Pipline codebase is fully Black compliant and uses mypy for static type checking whenever possible.\nDungeon Pipeline has a lot of different components, read below to learn about some of the highlights!"
+    "text": "Dungeon Pipeline is a pipeline solution I wrote for my senior capstone short film Love & Gold.\nIt includes customizable DCC launchers, import/export tools, Maya playblast tools, shot building tools for Maya and Houdini, and rendering and Tractor submission tools. The project is currently ongoing, thus Dungeon Pipeline is still under development. Dungeon Pipeline serves a team of ~50 artists, with the film slated to finish in May 2025.\nWork on Dungeon Pipeline started in December of 2023. My goal was to take what I had learned from working on Accomplice Pipeline with Matthew Minson (@maminson) and do a clean rebuild from the ground up.\nThe Dungeon Pipline codebase is fully Black compliant and uses mypy for static type checking whenever possible.\nDungeon Pipeline has a lot of different components, read below to learn about some of the highlights!"
   },
   {
     "objectID": "code-projects/dungeon-pipeline/index.html#using-universal-scene-description-usd",
     "href": "code-projects/dungeon-pipeline/index.html#using-universal-scene-description-usd",
     "title": "Dungeon Pipeline",
     "section": "Using Universal Scene Description (USD)",
-    "text": "Using Universal Scene Description (USD)\nDungeon Pipeline uses Pixar’s Universal Scene Description (USD) for all data transfer between DCCs and for rendering.\n\nUSD in Maya\nAdditional tooling is needed for efficient USD export from Maya. Since Maya does not yet come bundled with USD v24+, we cannot directly write USD files to network drives when on Windows. If needed, export scripts export files to tmp directories and copy them to their correct location.\nA chaser script is used to post-process Maya exports as Maya itself provides minimal control over the structure of exported prims:\n\nExported character rigs are scaled down to Houdini scale and material bindings are moved to be adjacent to the geometry primitives so they can be referenced in easier\nExported cameras are located whereever they fall in the scene graph (ie previs cameras may be located in multiple places in a scene file), and moved to a conssistent location.\nExported animations scaled down to Houdini scale, then partitioned by namespace into layers and referenced back into the root layer. The static rig layers are also layerd in so that animation data is included in the scene via an Inherit arc on the static rig. Value Clips are used to partition the animation data into two time ranges so that shot preroll is only loaded when needed.\n\nEnvironments are constructed in Solaris, then the animation shot build tools import the environment as a USD stage back into Maya for animation. The shot build tool sets the stage Edit Target to an override layer, allowing animators to make shot-specific tweaks to an environment without editing the original environment, such as moving and toggling visibility on set pieces. Environment artists can create Variant arcs so that entire groups of assets can be toggled on and off in Maya.\n\n\nUSD in Houdini\nIn Houdini, Dungeon Pipeline makes use of the Solaris Component Builder workflow for assembling and publishing assets. Python OnCreated scripts provide a set of custom defaults on SideFX’s component builder nodes. A default harness is provided inside of the Component Geometry Node to clean up the geometry and generate proxy geometry and packed UVs.\n\n\n\n\n\n\n\n\nAsset with multiple variants\n\n\n\n\n\n\n\nGeometry cleanup harness\n\n\n\n\n\n\nFigure 1: Solaris Component Builder\n\n\n\nEnvironments artists can drop in custom node setups that use context options to organize all of the assets in the scene graph to match the structure of the node graph.\n\n\n\n\n\n\n\n\nExample nodegraph with the Scene Graph it generates\n\n\n\n\n\n\n\nNodegraph assembling an environment\n\n\n\n\n\n\nFigure 2: Assembling environments in Solaris"
+    "text": "Using Universal Scene Description (USD)\nDungeon Pipeline uses Pixar’s Universal Scene Description (USD) for all data transfer between DCCs and for rendering.\n\nUSD in Maya\nAdditional tooling is needed for efficient USD export from Maya. Since Maya does not yet come bundled with USD v24+, we cannot directly write USD files to network drives when on Windows. If needed, export scripts export files to tmp directories and copy them to their correct location.\nA chaser script is used to post-process Maya exports as Maya itself provides minimal control over the structure of exported prims:\n\nExported character rigs are scaled down to Houdini scale and material bindings are moved to be adjacent to the geometry primitives so they can be referenced in easier\nExported cameras are located whereever they fall in the scene graph (ie previs cameras may be located in multiple places in a scene file), and moved to a conssistent location.\nExported animations scaled down to Houdini scale, then partitioned by namespace into layers and referenced back into the root layer. The static rig layers are also layerd in so that animation data is included in the scene via an Inherit arc on the static rig. Value Clips are used to partition the animation data into two time ranges so that shot preroll is only loaded when needed.\n\nEnvironments are constructed in Solaris, then the animation shot build tools import the environment as a USD stage back into Maya for animation. The shot build tool sets the stage Edit Target to an override layer, allowing animators to make shot-specific tweaks to an environment without editing the original environment, such as moving and toggling visibility on set pieces. Environment artists can create Variant arcs so that entire groups of assets can be toggled on and off in Maya.\n\n\nUSD in Houdini\nIn Houdini, Dungeon Pipeline makes use of the Solaris Component Builder workflow for assembling and publishing assets. Python OnCreated scripts provide a set of custom defaults on SideFX’s component builder nodes. A default harness is provided inside of the Component Geometry Node to clean up the geometry and generate proxy geometry and packed UVs.\n\n\n\n\n\n\n\n\nAsset with multiple variants\n\n\n\n\n\n\n\nGeometry cleanup harness\n\n\n\n\n\n\nFigure 1: Solaris Component Builder\n\n\n\nEnvironments artists can drop in custom node setups that use context options to organize all of the assets in the scene graph to match the structure of the node graph.\n\n\n\n\n\n\n\n\nExample nodegraph with the Scene Graph it generates\n\n\n\n\n\n\n\nNodegraph assembling an environment\n\n\n\n\n\n\nFigure 2: Assembling environments in Solaris\n\n\n\n\ngit"
   },
   {
     "objectID": "code-projects/dungeon-pipeline/index.html#maya-playblasting",
@@ -75,40 +110,5 @@
     "title": "Dungeon Pipeline",
     "section": "ShotGrid Database",
     "text": "ShotGrid Database\nDungeon Pipeline uses ShotGrid/Flow Production Tracking as a centralized source of truth for tracking assets and shots. The ShotGrid Database module translates between the JSON-like objects returned by the ShotGrid API and the more Pythonic data structures used by Dungeon Pipeline.\nTo maximize performance in this small-scope project, a single batch call is made to ShotGrid when the database is initialized. This local copy is then referenced instead of making a call to ShotGrid for each access.\nI used attrs and cattrs to define data structures. In addition to making type checking and IDE autocompletion easier, it also lets us do things like store a Python set[str] in a ShotGrid Text field, automatically handle nested Stub objects sent by ShotGrid, and write and read these Python objects to/from JSON files.\n\n\n\n\n\n\n\n\nMaya shot open dialog\n\n\n\n\n\n\n\nMaya asset publish dialog (geometry variants queried)\n\n\n\n\n\n\n\nHoudini asset open dialog (no geometry variants)\n\n\n\n\n\n\nFigure 7: ShotGrid database interaction UIs in various DCCs\n\n\n\nExample usage:\n# Import the database module and initialize it with the project ID and SG authentication credentials\n&gt;&gt;&gt; from pipe.db import DB\n&gt;&gt;&gt; from env_sg import DB_Config\n&gt;&gt;&gt; conn = DB.Get(DB_Config)\n\n# now you can use the database connection\n&gt;&gt;&gt; asset = conn.get_asset_by_name(\"Test Asset (var1)\")\n&gt;&gt;&gt; asset\nAsset(code='Test Asset (var1)', id=7098, path='asset/environment/setdressing/testasset', name='testasset_var1', material_variants={'green', 'blue', 'purple', 'yellow', 'red'}, parent=AssetStub(id=7097, disp_name='Test Asset'))\n\n# The fields in the Asset object match those found in the Asset Info tab of an asset page on the ShotGrid website\n# Note that the `parent` attribute of this has the type `AssetStub`\n# To expand an `AssetStub` to a full asset:\n&gt;&gt;&gt; parent_asset = conn.get_asset_by_stub(asset.parent)\n\n# Entities can also be fetched by id\n&gt;&gt;&gt; conn.get_shot_by_id(8012)\nShot(assets=[AssetStub(id=7064, disp_name='Rayden'), AssetStub(id=7064, disp_name='Robin')], code='D_010', cut_in=1001, cut_out=1100, cut_duration=99, id=8012, path='shot/D_010', sequence=SequenceStub(id=7001, disp_name='D'), set=None)\n\n# Lists of names and IDs can be fetched\n&gt;&gt;&gt; conn.get_shot_code_list()\n['A_010', 'A_020', 'A_030', 'A_040', 'A_045', 'A_050', ..., 'G_430']\n\n# Assets can be modified and updated \n&gt;&gt;&gt; asset.material_variants\n{'green', 'blue', 'purple', 'yellow', 'red'}\n&gt;&gt;&gt; asset.material_variants.add(\"pink\")\n&gt;&gt;&gt; asset.material_variants\n{'green', 'blue', 'purple', 'yellow', 'red', 'pink'}\n&gt;&gt;&gt; conn.update_asset(asset)\n# The change is now reflected in ShotGrid"
-  },
-  {
-    "objectID": "code-projects/accomplice-pipeline/index.html",
-    "href": "code-projects/accomplice-pipeline/index.html",
-    "title": "Accomplice Pipeline",
-    "section": "",
-    "text": "Accomplice Pipeline is a pipeline solution I worked on for the BYU capstone film project Student Accomplice.\n\nSource Code: Student-Accomplice-Pipeline-Team/accomplice_pipe\nTechnologies: Python, Maya, Houdini, RenderMan, Tractor, Substance Painter, Flow Production Tracking (ShotGrid), Nuke, OCIO\n\nStudent Accomplice has recieved a Student Academy Award, the Rookies Film of the Year Award, and is currently nominated for a College Television Award (Student Emmy).\n\nI joined the Accomplice Pipeline team in July of 2023. My work on Accomplice Pipeline primarily consisted of\n\nTroubleshooting artists’ issues around the clock and providing bugfixes\nImproving developer QoL by hosting the project on GitHub and writing documentation and training on creating local project copies.\nAdding functionality to Tractor spooling, including denoising with the RenderMan 26 denoiser and generating preview .mov files of rendered .exrs.\nRender wrangling and renderfarm monitoring and scripting to keep all farm blades working productively.\n\nAccomplice Pipeline was succeeded by Dungeon Pipeline"
-  },
-  {
-    "objectID": "code-projects/pipebot/index.html",
-    "href": "code-projects/pipebot/index.html",
-    "title": "PipeBot",
-    "section": "",
-    "text": "PipeBot is a Discord bot I created to help manage the pipeline for my senior thesis film.\n\nSource Code: scottdmilner/pipebot\nTechnologies: Python (aiohttp, disnake, PyGithub), Docker Compose\n\nPipeBot is deployed in a container with Docker Compose, using NGINX and Let’s Encrypt for SSL security.\n\n\n\n\n\n\n\nFigure 1: PipeBot’s Discord profile\n\n\n\nMost importantly, PipeBot provides a simple way for artists on the team to log bug reports and feature requests on GitHub without needing to make a GitHub account or navigate Github.\n\n\n\n\n\n\n\n\n1. Discord slash command\n\n\n\n\n\n\n\n2. Discord pop-up modal\n\n\n\n\n\n\n\n3. Properly tagged GitHub issue\n\n\n\n\n\n\nFigure 2: The artist’s bug reporting experience\n\n\n\nPipeBot also processes webhooks from ShotGrid and from pipeline tools running inside DCCs and broadcasts those messages to the team.\n\n\n\n\n\n\nFigure 3: Example of a report Discord message coming from a webhook sent to PipeBot"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "My name is Scott, I’m a Computer Science student studying CG/Animation/VFX pipelines and software development at Brigham Young University 🛠⚙️.\nI’m currently deep in my senior capstone—an animated short about a meet-cute in a crypt. I’ve architected our pipeline from scratch. Feel free to read about it here or check out the code directly on Github!"
-  },
-  {
-    "objectID": "about.html#hi-im-scott",
-    "href": "about.html#hi-im-scott",
-    "title": "About",
-    "section": "",
-    "text": "My name is Scott, I’m a Computer Science student studying CG/Animation/VFX pipelines and software development at Brigham Young University 🛠⚙️.\nI’m currently deep in my senior capstone—an animated short about a meet-cute in a crypt. I’ve architected our pipeline from scratch. Feel free to read about it here or check out the code directly on Github!"
-  },
-  {
-    "objectID": "projects/accomplice/index.html",
-    "href": "projects/accomplice/index.html",
-    "title": "Student Accomplice",
-    "section": "",
-    "text": "Figure 1: Student Accomplice\n\n\n\nStudent Accomplice is the BYU Center for Animation’s 2024 short film capstone. I worked as a Pipeline TD on this film, supporting ~40 artists. Student Accomplice has received the following accolades:\n\nStudent Academy Award\nVisual Effects Society Award Nominee\nCollege Television Award Nominee (still under consideration)\nThe Rookies Film of the Year\n\nRead more about what I did on this project here:\n\n\n\n\n\n\n\n\n\n\nAccomplice Pipeline\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ntractor-https\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\n\nTo read more about the film itself, check out the project’s profile on The Rookies!\n\nAs Student Accomplice is still under consideration for festivals, it is not available for public viewing at this time."
   }
 ]
