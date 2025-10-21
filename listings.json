@@ -4,6 +4,7 @@
     "items": [
       "/code-projects/dungeon-pipeline/index.html",
       "/code-projects/pipebot/index.html",
+      "/code-projects/tractor-lops/index.html",
       "/code-projects/tractor-https/index.html",
       "/code-projects/accomplice-pipeline/index.html",
       "/projects/accomplice/index.html",
@@ -11,17 +12,18 @@
     ]
   },
   {
-    "listing": "/projects/accomplice/index.html",
-    "items": [
-      "/code-projects/accomplice-pipeline/index.html",
-      "/code-projects/tractor-https/index.html"
-    ]
-  },
-  {
     "listing": "/projects/dungeons/index.html",
     "items": [
       "/code-projects/dungeon-pipeline/index.html",
       "/code-projects/pipebot/index.html",
+      "/code-projects/tractor-https/index.html",
+      "/code-projects/tractor-lops/index.html"
+    ]
+  },
+  {
+    "listing": "/projects/accomplice/index.html",
+    "items": [
+      "/code-projects/accomplice-pipeline/index.html",
       "/code-projects/tractor-https/index.html"
     ]
   }
