@@ -19,9 +19,14 @@ image: profile.jpg
 ---
 ## Hello 👋
 
-My name is Scott, I'm a Computer Science student studying CG/Animation/VFX pipelines and software development at Brigham Young University 🛠⚙️.
+My name is Scott, I'm a Computer Science Master's student studying graphics at Stanford 🌲.
 
-I'm currently deep in my senior capstone—an animated short about a meet-cute in a crypt. I've architected our pipeline from scratch. Feel free to read about it [here](/code-projects/dungeon-pipeline) or check out the code directly [on Github](https://github.com/scottdmilner/dungeon-pipeline)!
+In my undergrad, I studied Computer Science, focusing on CG/Animation/VFX pipelines and software development at Brigham Young University 🛠⚙️.
+
+Things I've been working on recently:
+
+- I presented at ACM SIGGRAPH 2025! Check out both of our presetations [here](https://dl.acm.org/doi/10.1145/3721239.3734118) and [here](https://dl.acm.org/doi/10.1145/3721242.3734008).
+- I finished up my senior animation capstone—an animated short about a meet-cute in a crypt! I architected our USD-based pipeline from scratch. Feel free to read about it [here](/code-projects/dungeon-pipeline) or check out the code directly [on Github](https://github.com/scottdmilner/dungeon-pipeline).
 
 Big into: USD, Houdini, board games, and 400 year-old music
 

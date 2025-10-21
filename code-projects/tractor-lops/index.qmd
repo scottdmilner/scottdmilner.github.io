@@ -1,0 +1,33 @@
+---
+title: "Tractor LOPs"
+author: "Scott Milner"
+categories: [dungeons]
+priority: 6
+source: "[GitHub {{< fa brands github >}}](https://github.com/scottdmilner/tractor-lops)"
+---
+
+**Tractor LOPs** are a set of Houdini HDAs for streamlining the process of sending render jobs to a Tractor renderfarm.
+
+- **Source Code:** [scottdmilner/tractor-lops](https://github.com/scottdmilner/tractor-lops)
+- **Technologies:** Tractor Python API, Houdini HDA
+
+---
+
+**Tractor LOPs** is designed to be a drop-in solution for sending complex renderfarm jobs to Tractor without leaving the Solaris LOP context. It was designed with the needs of [**Dungeon Pipeline**](../dungeon-pipeline/) in mind, but intended to be flexible enough that other students can use it to deploy their personal projects to the renderfarm when there is headroom.
+
+::: {#fig-basic}
+![](basic-example.png){width=50% .lightbox}
+
+Simple example Solaris scene setup with Tractor LOPs
+:::
+
+Artists can create as many *Tractor Configure* nodes as needed and feed them all into the *Tractor Submit* node. This allows them to quickly wedge various lighting rigs or render setting configurations within the LOP context without needing to use TOPs. All streams are submitted as a single job to Tractor.
+
+Denoising with the RenderMan denoiser can be configured with the *Tractor Denoise* node. This includes support for denoising arbitrary AOVs, sorting them based off `diffuse_` and `specular_` prefixes, if provided.
+
+
+::: {#fig-denoise}
+![](denoise-node.png) {.lightbox}
+
+Arbitrary AOV denoising support
+:::

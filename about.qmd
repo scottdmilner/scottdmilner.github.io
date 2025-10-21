@@ -15,6 +15,6 @@ about:
 
 ## Hi I'm Scott 👋
 
-My name is Scott, I'm a Computer Science student studying CG/Animation/VFX pipelines and software development at Brigham Young University 🛠⚙️.
+My name is Scott, I'm a Computer Science Master's student studying graphics at Stanford 🌲.
 
-I'm currently deep in my senior capstone—an animated short about a meet-cute in a crypt. I've architected our pipeline from scratch. Feel free to read about it [here](/code-projects/dungeon-pipeline) or check out the code directly [on Github](https://github.com/scottdmilner/dungeon-pipeline)!
+In my undergrad, I studied Computer Science, focusing on CG/Animation/VFX pipelines and software development at Brigham Young University 🛠⚙️.
