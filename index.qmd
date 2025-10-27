@@ -19,15 +19,15 @@ image: profile.jpg
 ---
 ## Hello 👋
 
-My name is Scott, I'm a Computer Science Master's student studying graphics at Stanford 🌲.
+My name is Scott, I'm a Computer Science Master's student studying graphics at Stanford 🌲. I build software that helps artists and fellow developers get their work done more efficiently. 
 
 In my undergrad, I studied Computer Science, focusing on CG/Animation/VFX pipelines and software development at Brigham Young University 🛠⚙️.
 
 Things I've been working on recently:
 
-- I interned with the RenderMan team at Pixar Animation Studios, working on improvements to the RenderMan Texture Manager and OpenImageIO.
+- I interned with the RenderMan team at Pixar Animation Studios, working on improvements to the RenderMan Texture Manager and OpenImageIO. My work will be included in the upcoming RenderMan 27 release.
 - I presented at ACM SIGGRAPH 2025! Check out both of our presetations [here](https://dl.acm.org/doi/10.1145/3721239.3734118) and [here](https://dl.acm.org/doi/10.1145/3721242.3734008).
-- I finished up my senior animation capstone—an animated short about a meet-cute in a crypt! I architected our USD-based pipeline from scratch. Feel free to read about it [here](/code-projects/dungeon-pipeline) or check out the code directly [on Github](https://github.com/scottdmilner/dungeon-pipeline).
+- I finished up my senior animation capstone—an animated short about a meet-cute in a crypt! I architected our USD-based pipeline from scratch. Feel free to read about it [here](/code-projects/dungeon-pipeline) or check out the code directly [on Github](https://github.com/scottdmilner/dungeon-pipeline). This code base also served as a base for a film capstone the following year and three video game capstones. 
 
 Big into: USD, Houdini, board games, and 400 year-old music
 
