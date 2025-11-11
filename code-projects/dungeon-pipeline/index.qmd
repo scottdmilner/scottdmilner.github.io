@@ -63,7 +63,7 @@ Environments artists can drop in custom node setups that use context options to 
 Assembling environments in Solaris
 :::
 
-<!-- characters -->git 
+<!-- characters -->
 
 ## Maya Playblasting
 
